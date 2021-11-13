@@ -119,6 +119,7 @@ export const languageOptions: LanguageOption[] = [
 ]
 
 const dlo = languageOptions.find((l) => l.label === 'JSON')
+
 export const defaultLanguageOption = dlo
 
 export default languageOptions
