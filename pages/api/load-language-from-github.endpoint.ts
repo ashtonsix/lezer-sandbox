@@ -5,13 +5,13 @@ import {
 } from '@energetics/lr-util'
 import {NextApiRequest, NextApiResponse} from 'next'
 
-setEsbuildLoader(() => import('esbuild-wasm'))
-setGithubAuth(process.env.GITHUB_TOKEN)
-
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+  setEsbuildLoader(() => import('esbuild-wasm'))
+  setGithubAuth(process.env.GITHUB_TOKEN)
+
   let language = await loadFromGithub({
     parser: req.query.parser as string,
     support: req.query.support as string,

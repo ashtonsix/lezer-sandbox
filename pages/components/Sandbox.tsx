@@ -14,6 +14,9 @@ if (typeof window !== 'undefined') {
   setGithubRemote({
     language: '/api/load-language-from-github',
     tree: '/api/load-tree-from-github',
+    esbuild: process.env.VERCEL
+      ? '/api/esbuild-transform'
+      : 'http://localhost:3001/api/esbuild-transform',
   })
 }
 setBuildParserFileAsyncWorkerLoader(async () => {

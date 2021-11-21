@@ -1,9 +1,16 @@
 import {loadTreeFromGithub, setGithubAuth} from '@energetics/lr-util'
+import {NextApiRequest, NextApiResponse} from 'next'
 
-setGithubAuth(process.env.GITHUB_TOKEN)
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
+  setGithubAuth(process.env.GITHUB_TOKEN)
 
-export default async function handler(req, res) {
-  let tree = await loadTreeFromGithub(req.query.tree, req.query.extension)
+  let tree = await loadTreeFromGithub(
+    req.query.tree as string,
+    req.query.extension as string
+  )
   tree = tree.map((t) => t?.toPlainObject?.() ?? t)
   let first = await fetch(tree[0].url)
   tree[0].content = await first.text()

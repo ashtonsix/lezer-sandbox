@@ -5,6 +5,16 @@ npm install
 npm run dev
 ```
 
+And in another terminal (first install air, the golang package):
+
+```sh
+air
+```
+
+## Vercel
+
+This software is optimised for deployment on Vercel
+
 ## GitHub Authentication
 
 The sandbox can run without GitHub authentication, but will be limited to 60 API requests per hour.
