@@ -24,6 +24,7 @@ export default async function handler(
     'Cache-Control',
     `s-maxage=${hour}, stale-while-revalidate=${month}`
   )
+  res.setHeader('Access-Control-Allow-Origin', `*`)
   res.status(200)
   res.json(language)
 }
