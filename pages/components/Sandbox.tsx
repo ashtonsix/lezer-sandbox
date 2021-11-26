@@ -44,11 +44,11 @@ export const Sandbox = () => {
   useEffect(() => {
     languageEditor.mount(languageEditorViewContainer.current)
     languageEditor.addListener('all', () => setNonce(Math.random()))
-    languageEditor.openLanguage('json')
+    languageEditor.openLanguage('javascript')
 
     sampleEditor.mount(sampleEditorViewContainer.current)
     sampleEditor.addListener('all', () => setNonce(Math.random()))
-    sampleEditor.openSample('json')
+    sampleEditor.openSample('javascript')
 
     languageEditor.addListener('build', async () => {
       let l = languageEditor.language
@@ -77,6 +77,32 @@ export const Sandbox = () => {
         }
       `}</style>
       <h1>Lezer Sandbox</h1>
+      <details>
+        <summary>Info (click here)</summary>
+
+        <p>
+          This sandbox gives you a place to view and modify{' '}
+          <a
+            href="https://lezer.codemirror.net/"
+            target="_blank"
+            rel="noopener"
+          >
+            Lezer
+          </a>{' '}
+          parsers, and the parse trees they produce.
+          <br />
+          <br />
+          Lezer was created by{' '}
+          <a href="https://github.com/marijnh" target="_blank" rel="noopener">
+            Marijn Haverbeke
+          </a>
+          <br />
+          This sandbox was created by{' '}
+          <a href="https://ashtonsix.com" target="_blank" rel="noopener">
+            Ashton Six
+          </a>
+        </p>
+      </details>
       <PseudoList values={languageRegistryDefault.languageOptions}>
         {(lo: any) => (
           <button
